@@ -26,8 +26,9 @@ def calculate_gc_content(dna_seq):
     
     if total == 0:
         return 0.0
-    
+     
     return ((g_count + c_count) / total) * 100
+    
     def read_fasta(file_path):
     """Reads a fasta file and returns the DNA sequence as a single string."""
     sequence = ""
