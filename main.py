@@ -18,3 +18,11 @@ rev_comp = get_reverse_complement(dna_data)
 print(f"Extracted Sequence Length: {len(dna_data)}")
 print(f"First 20 bases: {dna_data[:20]}")
 print(f"Reverse Complement: {rev_comp[:20]}...")
+
+my_fasta_file = "/content/sample.fasta.txt"
+dna_sequence = read_fasta(my_fasta_file)
+genome = read_fasta(my_fasta_file)
+translation_table = str.maketrans("ATGC","TACG")
+complement_dna = dna_sequence.translate(translation_table)
+print(genome)
+print(complement_dna)
