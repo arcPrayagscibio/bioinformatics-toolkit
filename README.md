@@ -1,2 +1,2 @@
 # bioinformatics-toolkit
-this repo is for all the functional scripts  I have created and a portfolio for all the useful bioinformatics tools 
+This repository contains modular tool for genetic sequence analysis and also contain a reverse compliment calculation
