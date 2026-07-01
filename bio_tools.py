@@ -40,3 +40,12 @@ def calculate_gc_content(dna_seq):
             # Remove newline characters and append to sequence
             sequence += line.strip()
     return sequence.upper()
+
+def calculate_rpm(gene_counts, total_reads):
+  """Normalizes gene expression by calculating Reads Per Million (RPM).
+  This allows you to compare gene expression across different samples."""
+  if total_reads == 0:
+    return 0.0
+  return (gene_counts / total_reads) * 1_000_000
+
+print(f"RPM Value: {calculate_rpm(500,1000000)}")
