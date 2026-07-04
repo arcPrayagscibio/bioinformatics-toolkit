@@ -30,7 +30,7 @@ def calculate_gc_content(dna_seq):
     return ((g_count + c_count) / total) * 100
     
     def read_fasta(file_path):
-    """Reads a fasta file and returns the DNA sequence as a single string."""
+        """Reads a fasta file and returns the DNA sequence as a single string."""
     sequence = ""
     with open(file_path, 'r') as file:
         for line in file:
@@ -42,7 +42,7 @@ def calculate_gc_content(dna_seq):
     return sequence.upper()
 
 def calculate_rpm(gene_counts, total_reads):
-  """Normalizes gene expression by calculating Reads Per Million (RPM).
+    """Normalizes gene expression by calculating Reads Per Million (RPM).
   This allows you to compare gene expression across different samples."""
   if total_reads == 0:
     return 0.0
