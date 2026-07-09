@@ -51,7 +51,7 @@ def calculate_rpm(gene_counts, total_reads):
 print(f"RPM Value: {calculate_rpm(500,1000000)}")
 
 
-def translate_dan(dna_seq):
+def translate_dna(dna_seq):
   codon_table =  {
         'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
         'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
