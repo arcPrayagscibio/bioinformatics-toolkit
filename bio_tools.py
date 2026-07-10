@@ -98,8 +98,5 @@ def find_orf(dna_seq):
     coding_seq = dna_seq[start_index:]
     return translate_dna(coding_seq)
 
-messy_dna = "GGGGGGGGGGGGATGTTTTTCTAGAAAAAAAAAA"
 
-protein = find_orf(messy_dna)
-print(f"detected protein:{protein}")
 
