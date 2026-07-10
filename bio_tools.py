@@ -52,8 +52,13 @@ def calculate_rpm(gene_counts, total_reads):
 print(f"RPM Value: {calculate_rpm(500,1000000)}")
 
 
-def translate_dna(dna_seq):
-  codon_table =  {
+# bio_tools.py
+
+# (Keep your previous functions here: get_reverse_complement, calculate_gc_content, read_fasta, calculate_rpm)
+
+def get_full_codon_table():
+    """Returns the full dictionary of 64 DNA codons and their amino acids."""
+    return {
         'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
         'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
         'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
@@ -68,15 +73,18 @@ def translate_dna(dna_seq):
         'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
         'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
         'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
-        'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_', # '_' represents STOP
+        'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
         'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W'
-        }
-  protein = []
-  for i in range(0, len(dna_seq) - 2, 3):
-    codon = dna_seq[i:i+3]
-    amino_acid = codon_table.get(codon, "unknown")
-    protein.append(amino_acid)
+    }
 
-  return protein
-
+def translate_dna(dna_seq):
+    """Translates a DNA string into a protein sequence."""
+    codon_table = get_full_codon_table()
+    protein = []
+    # Loop through the sequence in steps of 3
+    for i in range(0, len(dna_seq) - 2, 3):
+        codon = dna_seq[i:i+3]
+        amino_acid = codon_table.get(codon, "Unknown")
+        protein.append(amino_acid)
+    return protein
 
