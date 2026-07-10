@@ -88,3 +88,18 @@ def translate_dna(dna_seq):
         protein.append(amino_acid)
     return protein
 
+
+
+def find_orf(dna_seq):
+    start_index = dna_seq.find('ATG')
+    if start_index == -1:
+        return "No start codon found"
+    # Assign coding_seq here, after checking for a start codon
+    coding_seq = dna_seq[start_index:]
+    return translate_dna(coding_seq)
+
+messy_dna = "GGGGGGGGGGGGATGTTTTTCTAGAAAAAAAAAA"
+
+protein = find_orf(messy_dna)
+print(f"detected protein:{protein}")
+
