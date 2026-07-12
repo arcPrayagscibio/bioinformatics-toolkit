@@ -1,23 +1,25 @@
 # bioinformatics-toolkit
-This repository contains modular tool for genetic sequence analysis and also contain a reverse compliment calculation,FASTA reading script,translation code,and a open reading frame(orf)
+This repository contains modular tool for genetic analysis 
 
-#projects:-
+## :contents:-
 
->bio_tools.py>a full set of functional scripts for geneome anlysis 
-:contents:-
-read_fasta(): Handles messy, real-world genetic data.
+'read_fasta()':function to handle real-world genetic data, filtering out headers and cleaning whitespace.
 
-calculate_gc_content(): A standard metric for identifying organisms.
+'calculate_gc_content()': A standard metric for identifying organisms and genome reasearch.
 
-get_reverse_complement(): Essential for DNA sequencing analysis.
+'get_reverse_complement()': A script for reverse sequence generation, Essential for DNA sequencing analysis.
 
-translate_dna():  molecular decoder, a script to translate dna into protein .
+'translate_dna()':  molecular decoder, a script to translate dna into amino acid chains, using a full 64 codon dictionary .
 
-find_orf(): gene-discovery engine, its scans a dna then finds first ATG(start codon) and ends with a stop codon(TAA TAG TGA).
+'find_orf()': gene-discovery engine, its scans a dna then finds first ATG(start codon) and ends with a stop codon(TAA TAG TGA).
 
+## projects 
+'bio_toosl.py':- library containing all analytical functions
+'main_analysis.py ':- this file contains all analysis done till now
+'data/':- Directory for storing raw FASTA files.
 
-purpose:- I have created this project as a first step towards my goal of learning and understanding more about the regeneratiion of an organism and hopefully able to apply my learning towards betterment of modern medicine. I am well aware that this is not going to be easy or 'walking in garden' kind of work and may take years but I will keep working towards my goals...
-
+## Future Development
+Currently exploring integration with real-world public databases (NCBI) and simulating mutation effects (point mutations and frameshifts) on protein structure.
 
 
 
