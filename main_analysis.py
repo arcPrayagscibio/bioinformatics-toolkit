@@ -1,24 +1,41 @@
 # main_analysis.py
-import matplotlib.pyplot as plt
-from bio_tools import calculate_rpm
 
-def run_pipeline():
-    # Define data
-    genes = ['Gene_A', 'Gene_B', 'Gene_C']
-    reg_counts = [1200, 500, 100]
-    scar_counts = [400, 800, 100]
-    total = 1000000
+from bio_tools import (
+    read_fasta, 
+    calculate_gc_content, 
+    get_reverse_complement, 
+    translate_dna, 
+    find_orf
+)
 
-    # Calculate RPM using your tool
-    reg_rpm = [calculate_rpm(c, total) for c in reg_counts]
-    scar_rpm = [calculate_rpm(c, total) for c in scar_counts]
-
-    # Print results
-    print("Analysis complete. Check your plot window.")
+def run_full_analysis(file_path):
+    print(f"--- Starting Bioinformatics Pipeline: {file_path} ---")
     
-    # Plotting code (Try to type this out from memory if you can!)
-    plt.bar(genes, reg_rpm)
-    plt.show()
+    # 1. Read Data
+    dna = read_fasta(file_path)
+    print(f"Sequence Loaded. Total Length: {len(dna)} bp")
+    
+    # 2. GC Content Analysis
+    gc = calculate_gc_content(dna)
+    print(f"GC Content: {gc:.2f}%")
+    
+    # 3. Reverse Complement (First 50 bases)
+    rev_comp = get_reverse_complement(dna)
+    print(f"Reverse Complement (50bp): {rev_comp[:50]}...")
+    
+    # 4. Gene Discovery (ORF Finding)
+    # We use a slice of the DNA to look for a gene
+    orf_protein = find_orf(dna)
+    print(f"Detected ORF Protein Sequence (first 20 amino acids): {orf_protein[:20]}")
+    
+    print("--- Pipeline Execution Complete ---")
 
 if __name__ == "__main__":
-    run_pipeline()
+    # Ensure your path points to your actual FASTA file
+    target_file = "data/sample_sequence.fasta"
+    try:
+        run_full_analysis(target_file)
+    except FileNotFoundError:
+        print(f"Error: File not found at {target_file}. Please check the path.")
+
+
