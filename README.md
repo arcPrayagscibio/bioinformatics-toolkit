@@ -1,9 +1,15 @@
 # bioinformatics-toolkit
-This repository contains modular tool for genetic sequence analysis and also contain a reverse compliment calculation
+This repository contains modular tool for genetic sequence analysis and also contain a reverse compliment calculation,FASTA reading script,translation code,and a open reading frame(orf)
 
-#recent projects
+#projects:-
 
->a full set of functional script for genetics and protein analysis
+bio_tools.py>a full set of functional scripts for geneome anlysis 
+:contents:-
+read_fasta(): Handles messy, real-world data.
+calculate_gc_content(): A standard metric for identifying organisms.
+get_reverse_complement(): Essential for DNA sequencing analysis.
+translate_dna():  molecular decoder.
+find_orf(): gene-discovery engine.
 
 
 
